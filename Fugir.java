@@ -1,6 +1,8 @@
-
 public class Fugir extends Evento{
-	public void action(Treinador ativo){
+	public Fugir(){
+		super(1);
+	}
+	public void action(Treinador ativo, Treinador oponente){
 		int i;
 		for(i=0; i<6; i++){
 			if(ativo.getPokemon(i)!=null)
