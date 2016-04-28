@@ -75,11 +75,18 @@ public class Mapa {
 	
 	public static void main(String[] args) {
 		Mapa map = new Mapa();
-		
+		Pokemon[] pokemons = new Pokemon[2];
+		pokemons[0] = new Pokemon("Bulbasaur", 45, 11, 4, 95);
+		pokemons[1] = new Pokemon("Rhydon", 40, 5, 6, 160);
+		Ataque atks[] = new Ataque[1];
+		Ataque[0] = new Ataque("Tackle, 1, 35");
+		pokemons[0].setAtaques(atks);
+		pokemons[1].setAtaques(atks);
+		Treinador player = new Treinador("Young Red", pokemons);
 		if (map.ehGramado(m, position)){
 				double rand = Math.random();
 				if (rand < 0.2){
-					map.encontro(); // encontrou pokemon selvagem
+					map.encontro(player); // encontrou pokemon selvagem
 				}
 			}
 		}
