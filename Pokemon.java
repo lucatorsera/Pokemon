@@ -1,11 +1,22 @@
-
 public class Pokemon {
 	private String nome;
 	private int baseSpeed;
 	private int tipo1, tipo2;
 	private int HPmax, HPatual;
 	private Ataque[] ataques;
-	private double critRate;
+	//private double critRate;
+	//Nao vamos usar criticos
+	public Pokemon(String name, int speed, int tipoA, int tipoB, int HP){
+		nome = name;
+		baseSpeed = speed;
+		tipo1 = tipoA;
+		tipo2 = tipoB;
+		HPmax = HP;
+		HPatual = HPmax;
+	}
+	public void setAtaques(Ataque[] a){
+		ataques = a;
+	}
 	public String getNome(){
 		return nome;
 	}
@@ -22,7 +33,7 @@ public class Pokemon {
 		HPatual = HPatual - dano;
 		if(HPatual>HPmax)
 			HPatual = HPmax;
-		//Curar = dano negativo, mas nao pode curar acima do máximo
+		//Curar = dano negativo, mas nao pode curar acima do mÃ¡ximo
 		if(HPatual<0)
 			HPatual = 0;
 	}
@@ -31,6 +42,11 @@ public class Pokemon {
 	}
 	public int getHPmax(){
 		return HPmax;
+	}
+	public Ataque getAtaque(int i){
+		if(i<0||i>=4)
+			return null;
+		return ataques[i];
 	}
 }
 
